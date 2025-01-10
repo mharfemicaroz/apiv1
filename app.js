@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const blacklistedIPs = ["192.168.1.1", "120.28.196.158"];
+const whitelistedIPs = ["216.247.50.17"];
 
 app.use((req, res, next) => {
   let ipAddress =
@@ -17,8 +17,8 @@ app.use((req, res, next) => {
 
   console.log(`Resolved IP address: ${ipAddress}`);
 
-  if (blacklistedIPs.includes(ipAddress)) {
-    console.log(`Attempted connection from blacklisted IP: ${ipAddress}`);
+  if (!whitelistedIPs.includes(ipAddress)) {
+    console.log(`Attempted connection from non-whitelisted IP: ${ipAddress}`);
     return res.json({ access: 0 });
   }
 
