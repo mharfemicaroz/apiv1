@@ -4,7 +4,7 @@ const app = express();
 // Example list of blacklisted IPs
 const blacklistedIPs = [
   "192.168.1.1", // Example blacklisted IP
-  "203.0.113.42", // Example blacklisted IP
+  "120.28.196.158", // Example blacklisted IP
   // Add more blacklisted IPs here
 ];
 
