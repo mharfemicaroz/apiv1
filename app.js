@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const whitelistedIPs = ["216.247.50.17"];
+const whitelistedIPs = ["216.247.50.17", "49.146.2.227"];
 
 app.use((req, res, next) => {
   let ipAddress =
