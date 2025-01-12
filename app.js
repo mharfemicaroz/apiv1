@@ -1,23 +1,33 @@
 const express = require("express");
 const app = express();
 
-const whitelistedIPs = ["216.247.50.17", "49.146.2.227"];
+// Define whitelisted IPs and ranges
+const whitelistedIPs = ["49.146.2.227"]; // Add specific IPs
+const whitelistedIPRanges = ["216.247.50.", "49.146.2."]; // Add ranges (e.g., 216.247.50.xxx)
 
+// Middleware to check IP addresses
 app.use((req, res, next) => {
   let ipAddress =
     req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
+  // Extract the first IP if behind a proxy
   if (ipAddress && ipAddress.includes(",")) {
     ipAddress = ipAddress.split(",")[0].trim();
   }
 
+  // Remove IPv6 prefix if present
   if (ipAddress.startsWith("::ffff:")) {
     ipAddress = ipAddress.substring(7);
   }
 
   console.log(`Resolved IP address: ${ipAddress}`);
 
-  if (!whitelistedIPs.includes(ipAddress)) {
+  // Check if IP is in the whitelist
+  const isWhitelisted =
+    whitelistedIPs.includes(ipAddress) ||
+    whitelistedIPRanges.some((range) => ipAddress.startsWith(range));
+
+  if (!isWhitelisted) {
     console.log(`Attempted connection from non-whitelisted IP: ${ipAddress}`);
     return res.json({ access: 0 });
   }
