@@ -3,7 +3,7 @@ const app = express();
 
 // Define whitelisted IPs and ranges
 const whitelistedIPs = ["49.146.2.227"]; // Add specific IPs
-const whitelistedIPRanges = ["216.247.50.", "49.146.2.", "61.245.13."]; // Add ranges (e.g., 216.247.50.xxx)
+const whitelistedIPRanges = ["216.247.50.", "49.146.2."]; // Add ranges (e.g., 216.247.50.xxx)
 
 // Middleware to check IP addresses
 app.use((req, res, next) => {
