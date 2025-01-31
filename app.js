@@ -6,6 +6,7 @@ const whitelistedIPs = ["49.146.2.227"]; // Add specific IPs
 const whitelistedIPRanges = [
   "216.247.50.",
   "49.146.2.",
+  "49.146.5.",
   "61.245.13.",
   "222.127.28.",
 ]; // Add ranges (e.g., 216.247.50.xxx)
