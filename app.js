@@ -9,6 +9,7 @@ const whitelistedIPRanges = [
   "49.146.5.",
   "61.245.13.",
   "222.127.28.",
+  "49.146.", // Added broader IP pattern
 ]; // Add ranges (e.g., 216.247.50.xxx)
 
 // Middleware to check IP addresses
