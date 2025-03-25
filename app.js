@@ -10,8 +10,9 @@ const whitelistedIPRanges = [
   "61.245.13.",
   "222.127.28.",
   "143.44.184.",
-  "49.146.", // Added broader IP pattern
-]; // Add ranges (e.g., 216.247.50.xxx)
+  "49.146.",
+  "143.44.192.",
+];
 
 // Middleware to check IP addresses
 app.use((req, res, next) => {
