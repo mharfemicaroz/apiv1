@@ -15,6 +15,7 @@ const whitelistedIPRanges = [
   "143.44.185.",
   "124.217.127.", //ndci
   "124.217.",
+  "120.28.196.",
 ];
 
 // Middleware to check IP addresses
