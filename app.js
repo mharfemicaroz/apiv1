@@ -18,6 +18,7 @@ const whitelistedIPRanges = [
   "120.28.196.",
   "119.111.181.",
   "49.145.223.",
+  "121.200.222.",
 ];
 
 // Middleware to check IP addresses
